@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v3.0.11/turf.min.js"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.2.0/mapbox-gl-draw.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600&display=swap" rel="stylesheet">
+<link
+rel="stylesheet"
+href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.2.0/mapbox-gl-draw.css"
+type="text/css"
+/>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form id="createform" method="POST" action="/createpost">
+        <h2>Creeër nieuwe marker</h2>
+        Naam:<input type="text" name="cdNaam"required>
+        Nummer:<input type="text" name="cdNr"required>
+        Opdrachtgever:<input type="text" name="cdOpdrachtgever"required>
+        Architect:<input type="text" name="cdArchitect"required>
+        Segment: <select name="cdSegment" id="">
+            <option value="Woningbouw" name="Woningbouw">Woningbouw</option>
+            <option value="School" name="School">School</option>
+            <option value="Kantoor" name="Kantoor">Kantoor</option>
+            <option value="Industrie" name="Industrie">Industrie</option>
+            <option value="Zorg" name="Zorg">Zorg</option>
+            
+        </select>
+        Jaar:<input type="text" name="cdJaar"required>
+        Omzet:<input type="text" name="cdOmzet"required>
+        Longitude:<input type="text" name="cdLng" id="cdLng" required>
+        Latitude:<input type="text" name="cdLat" id="cdLat" required>
+        Image:<input type="text" name="cdImg"required>
+        <input type="text" id="formcoords" name="cdCoords"></input>
+        <input type="submit" id="cdSend" value="Go">
+        <i class="arrow left" id="arrowhide"></i>
+
+       
+    </form>
+    <div class="embed" id="embed">
+        <embed class="embedpdf" id="embedpdf"></embed>
+        <button class="embedbtn" id="embedbtn">Download PDF</button>
+    </div>
+
+    
+    
+    
+
+    <section class="sec sec-map-area" id="mapcreate" style="width:80%; position: absolute; right: 0%; top: 0%;">
+
+        <div class="sec-inner container">
+
+            <div class="sec-content map-area-content">
+
+                <div id='map-area'>
+                    <div class="modal" id="modal">
+                        <div class="modal-content" id="modal-content">                         
+                           
+                        </div>
+                    </div>
+                    <div class="dragmarker" id="dragmarker"></div>
+
+                <!-- /map-area-id -->
+
+             
+
+            </div>
+            <!-- /content -->
+        </div>
+        <!-- /inner -->
+    </section>
+    <!-- /map-area -->
+
+
+    <script src="main.js"></script>
+</body>
+</html>
